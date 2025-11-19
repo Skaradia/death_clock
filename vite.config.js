@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: process.env.NODE_ENV === 'production' ? '/Death_Clock/' : '/',
+  base: process.env.NODE_ENV === 'production' ? '/death_clock/' : '/',
   server: {
     port: 3000,
     open: true
