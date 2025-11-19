@@ -1,0 +1,144 @@
+.timer-container {
+  width: 100%;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 48px 0;
+  gap: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.timer-divider {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.08) 20%, rgba(255, 255, 255, 0.08) 80%, transparent 100%);
+  flex-shrink: 0;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.timer-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.timer-item:hover + .timer-divider::before,
+.timer-divider:hover::before {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.5);
+}
+
+.timer-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  padding: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.timer-item::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+}
+
+.timer-item:hover::before {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.5);
+}
+
+.timer-item:hover {
+  transform: translateY(-4px);
+}
+
+.timer-item:hover .timer-value {
+  color: #ffffff;
+  text-shadow: 
+    0 0 20px rgba(255, 255, 255, 0.3),
+    0 2px 8px rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.timer-value {
+  font-family: 'Cinzel', serif;
+  font-size: 2.75rem;
+  font-weight: 400;
+  color: #f0f0f0;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 3px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(135deg, #f0f0f0 0%, #d0d0d0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: numberUpdate 0.3s ease-out;
+}
+
+@keyframes numberUpdate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.timer-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.75rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .timer-value {
+    font-size: 2rem;
+  }
+  
+  .timer-item {
+    min-width: 80px;
+  }
+}
+

@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Cormorant Garamond', 'Cinzel', 'Times New Roman', serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #0a0a0a;
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+  color: #e0e0e0;
+  line-height: 1.6;
+  position: relative;
+}
+
+/* Gothic-style subtle background pattern */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    /* Gothic cross pattern - grid */
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 98px,
+      rgba(255, 255, 255, 0.015) 98px,
+      rgba(255, 255, 255, 0.015) 100px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 98px,
+      rgba(255, 255, 255, 0.015) 98px,
+      rgba(255, 255, 255, 0.015) 100px
+    ),
+    /* Ornate corner patterns */
+    radial-gradient(circle at 0% 0%, transparent 48px, rgba(255, 255, 255, 0.012) 49px, rgba(255, 255, 255, 0.012) 50px, transparent 51px),
+    radial-gradient(circle at 100% 0%, transparent 48px, rgba(255, 255, 255, 0.012) 49px, rgba(255, 255, 255, 0.012) 50px, transparent 51px),
+    radial-gradient(circle at 0% 100%, transparent 48px, rgba(255, 255, 255, 0.012) 49px, rgba(255, 255, 255, 0.012) 50px, transparent 51px),
+    radial-gradient(circle at 100% 100%, transparent 48px, rgba(255, 255, 255, 0.012) 49px, rgba(255, 255, 255, 0.012) 50px, transparent 51px);
+  background-size: 
+    100px 100px,
+    100px 100px,
+    200px 200px,
+    200px 200px,
+    200px 200px,
+    200px 200px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    /* Subtle vignette */
+    radial-gradient(ellipse 1200px 800px at 20% 20%, rgba(255, 255, 255, 0.008) 0%, transparent 50%),
+    radial-gradient(ellipse 1000px 600px at 80% 80%, rgba(255, 255, 255, 0.006) 0%, transparent 50%),
+    /* Gothic arch pattern overlay */
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 199px,
+      rgba(255, 255, 255, 0.006) 199px,
+      rgba(255, 255, 255, 0.006) 200px
+    );
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.7;
+}
+
+#root {
+  min-height: 100vh;
+  max-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+/* Improve select dropdown styling */
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23999' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 40px;
+}
+
