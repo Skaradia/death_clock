@@ -4,12 +4,16 @@
   left: 0;
   right: 0;
   bottom: 0;
+  width: 100%;
+  height: 100%;
+  height: -webkit-fill-available; /* Safari mobile fix */
   background: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
   backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px); /* Safari prefix */
 }
 
 .modal-content {
@@ -30,10 +34,12 @@
   from {
     opacity: 0;
     transform: translateY(-20px);
+    -webkit-transform: translateY(-20px); /* Safari prefix */
   }
   to {
     opacity: 1;
     transform: translateY(0);
+    -webkit-transform: translateY(0); /* Safari prefix */
   }
 }
 
@@ -62,13 +68,18 @@
   cursor: pointer;
   line-height: 1;
   padding: 0;
-  width: 30px;
-  height: 30px;
+  width: 44px; /* iOS minimum touch target */
+  height: 44px; /* iOS minimum touch target */
+  min-width: 44px;
+  min-height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   transition: all 0.2s ease;
+  /* Safari mobile touch improvements */
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
+  touch-action: manipulation;
 }
 
 .modal-close:hover {
@@ -97,6 +108,7 @@
 
 .form-input {
   padding: 12px 14px;
+  min-height: 44px; /* iOS minimum touch target */
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   font-size: 0.95rem;
@@ -104,6 +116,9 @@
   color: #e0e0e0;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+  /* Safari mobile fixes */
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
 }
 
 .form-input:hover {
@@ -130,6 +145,7 @@
 .btn-primary,
 .btn-secondary {
   padding: 12px 28px;
+  min-height: 44px; /* iOS minimum touch target */
   border: none;
   border-radius: 8px;
   font-size: 0.95rem;
@@ -140,6 +156,9 @@
   font-family: 'Cormorant Garamond', serif;
   text-transform: uppercase;
   font-style: italic;
+  /* Safari mobile touch improvements */
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
+  touch-action: manipulation;
 }
 
 .btn-primary {

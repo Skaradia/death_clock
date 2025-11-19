@@ -16,11 +16,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: #0a0a0a;
   min-height: 100vh;
+  min-height: -webkit-fill-available; /* Safari mobile fix */
   max-height: 100vh;
   overflow: hidden;
   color: #e0e0e0;
   line-height: 1.6;
   position: relative;
+  /* Safari mobile touch improvements */
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
+  touch-action: manipulation;
 }
 
 /* Gothic-style subtle background pattern */
@@ -90,6 +94,7 @@ body::after {
 
 #root {
   min-height: 100vh;
+  min-height: -webkit-fill-available; /* Safari mobile fix */
   max-height: 100vh;
   position: relative;
   z-index: 1;
